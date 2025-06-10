@@ -24,7 +24,7 @@
  <script>
   async function fetchKoan() {
     try {
-      const response = await fetch('./koans.json');
+      const response = await fetch('http://localhost:3000/v1/koan');
       const data = await response.json();
       const random = Math.floor(Math.random() * data.length);
       const koan = data[random];
