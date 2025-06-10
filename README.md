@@ -1,5 +1,10 @@
 # zenquote-api-docs
 
+## 🔗 Live Demo
+
+🧘 [Try the ZenQuote API Demo](https://soluxum32.github.io/zenquote-api-docs/html-demo/)
+
+
 # ZenQuote API Documentation
 
 The **ZenQuote API** delivers daily koans and quotes from the Zen tradition in JSON format. This fictional API is designed as a technical writing sample and philosophical prompt engine.
