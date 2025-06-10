@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZenQuote API Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>🧘 Zen Koan of the Moment</h1>
+    <div id="koan-box">
+      <p id="koan">Fetching wisdom...</p>
+      <p id="master"></p>
+      <p id="theme" class="tagline"></p>
+    </div>
+    <button onclick="fetchKoan()">Refresh Koan</button>
+  </main>
+
+  <footer>
+    <p>Created by [Your Name] • <a href="https://github.com/yourusername/zenquote-api-docs">GitHub Repo</a></p>
+  </footer>
+
+  <script>
+    async function fetchKoan() {
+      try {
+        const response = await fetch("https://api.zenquote.io/v1/koan");
+        const data = await response.json();
+        document.getElementById("koan").textContent = `"${data.koan}"`;
+        document.getElementById("master").textContent = `— ${data.master}`;
+        document.getElementById("theme").textContent = `Theme: ${data.theme}`;
+      } catch (error) {
+        document.getElementById("koan").textContent = "Failed to load koan.";
+        document.getElementById("master").textContent = "";
+        document.getElementById("theme").textContent = "";
+      }
+    }
+
+    fetchKoan();
+  </script>
+</body>
+</html>
