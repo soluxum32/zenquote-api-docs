@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ZenQuote API Demo</title>
+  <title>ZenQuote Demo (Mock Koans)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -14,7 +14,7 @@
       <p id="master"></p>
       <p id="theme" class="tagline"></p>
     </div>
-    <button onclick="fetchKoan()">Refresh Koan</button>
+    <button onclick="fetchMockKoan()">Refresh Koan</button>
   </main>
 
   <footer>
@@ -22,21 +22,38 @@
   </footer>
 
   <script>
-    async function fetchKoan() {
-      try {
-        const response = await fetch("https://api.zenquote.io/v1/koan");
-        const data = await response.json();
-        document.getElementById("koan").textContent = `"${data.koan}"`;
-        document.getElementById("master").textContent = `— ${data.master}`;
-        document.getElementById("theme").textContent = `Theme: ${data.theme}`;
-      } catch (error) {
-        document.getElementById("koan").textContent = "Failed to load koan.";
-        document.getElementById("master").textContent = "";
-        document.getElementById("theme").textContent = "";
+    const mockKoans = [
+      {
+        koan: "Not-knowing is most intimate.",
+        master: "Joshu",
+        theme: "intimacy"
+      },
+      {
+        koan: "If you meet the Buddha on the road, kill him.",
+        master: "Linji",
+        theme: "emptiness"
+      },
+      {
+        koan: "What is your original face before your parents were born?",
+        master: "Hui-neng",
+        theme: "identity"
+      },
+      {
+        koan: "When you reach the top of the mountain, keep climbing.",
+        master: "Zen proverb",
+        theme: "awakening"
       }
+    ];
+
+    function fetchMockKoan() {
+      const random = Math.floor(Math.random() * mockKoans.length);
+      const data = mockKoans[random];
+      document.getElementById("koan").textContent = `"${data.koan}"`;
+      document.getElementById("master").textContent = `— ${data.master}`;
+      document.getElementById("theme").textContent = `Theme: ${data.theme}`;
     }
 
-    fetchKoan();
+    fetchMockKoan(); // Load one on page load
   </script>
 </body>
 </html>
