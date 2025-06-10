@@ -13,3 +13,36 @@ This API allows users to:
 
 ## 📌 Base URL
 
+https://api.zenquote.io/v1/
+
+
+## 🔧 Endpoints
+
+| Method | Endpoint              | Description                            |
+|--------|-----------------------|----------------------------------------|
+| GET    | /koan                 | Fetches a random Zen koan              |
+| GET    | /koan/today           | Returns the koan of the day            |
+| GET    | /koan?master=Name     | Filters koans by Zen master            |
+| GET    | /theme/:topic         | Fetches koans by theme (e.g., emptiness)|
+
+Full documentation is available in [`endpoints.md`](./endpoints.md)
+
+## 🧪 Example Usage
+
+Visit [`usage-examples/`](./usage-examples/) for:
+- cURL usage samples
+- Python script to fetch koans
+
+## 🌸 Zen Philosophy Context
+
+Koans are not riddles to be solved, but doorways to experience. This API is a meditation disguised as data. See [`philosophy-context.md`](./philosophy-context.md) for more.
+
+## 📂 Project Files
+
+- `endpoints.md` – Endpoint details with sample responses
+- `usage-examples/` – Code examples using cURL and Python
+- `philosophy-context.md` – Background on Zen and koan use
+
+## ✍️ Author
+
+Created by as a demonstration of technical writing, Markdown documentation, and API-oriented thinking.
