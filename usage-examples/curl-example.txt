@@ -1,0 +1,1 @@
+curl https://api.zenquote.io/v1/koan
