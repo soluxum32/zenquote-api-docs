@@ -21,39 +21,24 @@
     <p>Created by [Your Name] • <a href="https://github.com/yourusername/zenquote-api-docs">GitHub Repo</a></p>
   </footer>
 
-  <script>
-    const mockKoans = [
-      {
-        koan: "Not-knowing is most intimate.",
-        master: "Joshu",
-        theme: "intimacy"
-      },
-      {
-        koan: "If you meet the Buddha on the road, kill him.",
-        master: "Linji",
-        theme: "emptiness"
-      },
-      {
-        koan: "What is your original face before your parents were born?",
-        master: "Hui-neng",
-        theme: "identity"
-      },
-      {
-        koan: "When you reach the top of the mountain, keep climbing.",
-        master: "Zen proverb",
-        theme: "awakening"
-      }
-    ];
+ <script>
+  async function fetchKoan() {
+    try {
+      const response = await fetch('./koans.json');
+      const data = await response.json();
+      const random = Math.floor(Math.random() * data.length);
+      const koan = data[random];
 
-    function fetchMockKoan() {
-      const random = Math.floor(Math.random() * mockKoans.length);
-      const data = mockKoans[random];
-      document.getElementById("koan").textContent = `"${data.koan}"`;
-      document.getElementById("master").textContent = `— ${data.master}`;
-      document.getElementById("theme").textContent = `Theme: ${data.theme}`;
+      document.getElementById("koan").textContent = `"${koan.koan}"`;
+      document.getElementById("master").textContent = `— ${koan.master}`;
+      document.getElementById("theme").textContent = `Theme: ${koan.theme}`;
+    } catch (err) {
+      document.getElementById("koan").textContent = "Failed to load koan.";
     }
+  }
 
-    fetchMockKoan(); // Load one on page load
-  </script>
+  fetchKoan();
+</script>
+
 </body>
 </html>
